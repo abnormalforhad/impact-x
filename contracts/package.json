@@ -9,7 +9,7 @@
     "test:report": "vitest run -- --coverage --costs",
     "test:watch": "chokidar \"tests/**/*.ts\" \"contracts/**/*.clar\" -c \"npm run test:report\""
   },
-  "author": "mdamz (https://github.com/mdamz)",
+  "author": "abnormalforhad",
   "license": "ISC",
   "dependencies": {
     "@stacks/clarinet-sdk": "^3.9.0",

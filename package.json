@@ -2,8 +2,8 @@
   "name": "impact-x",
   "version": "1.0.0",
   "description": "Cross-chain crowdfunding platform for Bitcoin builders",
-  "author": "mdamz (https://github.com/mdamz)",
-  "repository": { "type": "git", "url": "https://github.com/mdamz/impact-x" },
+  "author": "abnormalforhad",
+  "repository": { "type": "git", "url": "https://github.com/abnormalforhad/impact-x" },
   "scripts": {
     "dev": "cd frontend && npm run dev",
     "prepare": "husky install",

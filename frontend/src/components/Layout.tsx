@@ -115,12 +115,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </span>
             </div>
             <a
-              href="https://github.com/mdamz"
+              href="https://github.com/abnormalforhad"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-dark-400 hover:text-primary-400 font-body transition-colors cursor-pointer"
             >
-              by @mdamz
+              GitHub
             </a>
           </div>
         </div>
