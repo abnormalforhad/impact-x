@@ -9,8 +9,9 @@ const CONTRACT_ADDRESS = ACTIVE_NETWORK === 'testnet'
 
 const CONTRACT_NAME = 'campaign-registry-v2';
 
-// USDCx token contract on testnet
+// USDCx token contract on testnet (address.name)
 const USDCX_CONTRACT = 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.usdcx';
+const [USDCX_ADDRESS, USDCX_NAME] = USDCX_CONTRACT.split('.') as [string, string];
 
 export interface CampaignData {
   id: number;
@@ -66,10 +67,7 @@ export async function donate(
     functionArgs: [
       Cl.uint(campaignId),
       Cl.uint(amountMicro),
-      Cl.contractPrincipal(
-        USDCX_CONTRACT.split('.')[0],
-        USDCX_CONTRACT.split('.')[1]
-      ),
+      Cl.contractPrincipal(USDCX_ADDRESS, USDCX_NAME),
     ],
     network: ACTIVE_NETWORK === 'testnet' ? 'testnet' : 'mainnet',
   });
@@ -86,10 +84,7 @@ export async function claimFunds(campaignId: number): Promise<{ txId: string }> 
     functionName: 'claim-funds',
     functionArgs: [
       Cl.uint(campaignId),
-      Cl.contractPrincipal(
-        USDCX_CONTRACT.split('.')[0],
-        USDCX_CONTRACT.split('.')[1]
-      ),
+      Cl.contractPrincipal(USDCX_ADDRESS, USDCX_NAME),
     ],
     network: ACTIVE_NETWORK === 'testnet' ? 'testnet' : 'mainnet',
   });
@@ -106,10 +101,7 @@ export async function requestRefund(campaignId: number): Promise<{ txId: string 
     functionName: 'request-refund',
     functionArgs: [
       Cl.uint(campaignId),
-      Cl.contractPrincipal(
-        USDCX_CONTRACT.split('.')[0],
-        USDCX_CONTRACT.split('.')[1]
-      ),
+      Cl.contractPrincipal(USDCX_ADDRESS, USDCX_NAME),
     ],
     network: ACTIVE_NETWORK === 'testnet' ? 'testnet' : 'mainnet',
   });

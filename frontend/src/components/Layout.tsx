@@ -17,13 +17,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative" style={{ minHeight: '100vh' }}>
       {/* Floating Glass Navbar */}
-      <header className="glass-nav px-6 py-4">
+      <header
+        className="glass-nav px-6 py-4"
+        style={{
+          position: 'fixed',
+          top: 16,
+          left: 16,
+          right: 16,
+          zIndex: 50,
+          background: 'rgba(3, 7, 18, 0.9)',
+          backdropFilter: 'blur(20px)',
+          borderRadius: 16,
+          border: '1px solid rgba(255,255,255,0.08)',
+          color: '#f1f5f9',
+        }}
+      >
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <span className="text-xl font-heading font-bold text-primary-400">Impact-X</span>
+            <span className="text-xl font-heading font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent group-hover:from-primary-200 group-hover:to-primary-400 transition-all duration-300" style={{ color: '#22d3ee' }}>Impact-X</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -84,28 +98,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">{children}</main>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12" style={{ paddingTop: 7 * 16, minHeight: 400, color: '#f1f5f9' }}>{children}</main>
 
-      {/* Footer */}
+      {/* Footer — Impact-X, yours */}
       <footer className="glass-card mx-4 mb-4 mt-auto">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-                <Zap className="w-4 h-4 text-dark-900" />
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-glow">
+                <Zap className="w-4 h-4 text-dark-950" />
               </div>
-              <span className="font-heading font-medium text-dark-100">Impact-X</span>
-              <span className="text-dark-600">|</span>
+              <span className="font-heading font-semibold text-dark-100">Impact-X</span>
+              <span className="text-dark-600 hidden sm:inline">·</span>
               <span className="text-sm text-dark-400">
-                Cross-chain crowdfunding for Bitcoin builders
+                Crowdfunding for builders.
               </span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-dark-500">
-              <span>Powered by</span>
-              <span className="badge-primary">Circle xReserve</span>
-              <span className="text-dark-600">&</span>
-              <span className="badge-secondary">Stacks</span>
-            </div>
+            <a
+              href="https://github.com/mdamz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-dark-400 hover:text-primary-400 font-body transition-colors cursor-pointer"
+            >
+              by @mdamz
+            </a>
           </div>
         </div>
       </footer>

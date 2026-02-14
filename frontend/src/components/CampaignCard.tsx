@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ProgressBar } from "./ProgressBar";
 import { CategoryBadge } from "./CategoryBadge";
 import { Clock, Users, ArrowUpRight } from "lucide-react";
-import { CampaignCategory } from "../lib/categories";
+import type { CampaignCategory } from "../lib/categories";
 
 export interface Campaign {
   id: number;
@@ -28,7 +28,7 @@ function CampaignCardComponent({ campaign }: CampaignCardProps) {
   return (
     <Link
       to={`/campaign/${campaign.id}`}
-      className="glass-card group block overflow-hidden hover:scale-[1.02] transition-all duration-300"
+      className="glass-card group block overflow-hidden hover:scale-[1.02] hover:shadow-[0_8px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(6,182,212,0.1)] transition-all duration-300 cursor-pointer"
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
@@ -98,11 +98,6 @@ function CampaignCardComponent({ campaign }: CampaignCardProps) {
                 ? `${campaign.daysLeft} days left` 
                 : 'Ended'}
             </span>
-          </div>
-        </div>
-          <div className="flex items-center gap-2 text-sm text-dark-400">
-            <Clock className="w-4 h-4 text-primary-400" />
-            <span>{campaign.daysLeft > 0 ? `${campaign.daysLeft} days left` : "Ended"}</span>
           </div>
         </div>
       </div>

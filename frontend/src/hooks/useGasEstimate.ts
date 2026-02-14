@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  estimateStacksFee,
-  estimateEthereumGas,
-  StacksFeeEstimate,
-  EthereumGasEstimate,
-} from "../lib/gas";
+import type { StacksFeeEstimate, EthereumGasEstimate } from "../lib/gas";
+import { estimateStacksFee, estimateEthereumGas } from "../lib/gas";
 
 interface UseGasEstimateOptions {
   transactionType?: "create-campaign" | "donate" | "claim-funds" | "refund";

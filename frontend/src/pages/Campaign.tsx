@@ -362,9 +362,12 @@ export function CampaignPage() {
               <EmbedCode 
                 campaignUrl={shareData.url}
                 campaignTitle={campaign.title}
-      />
-
-    </div>
+              />
+            </div>
+</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

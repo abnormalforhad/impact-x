@@ -105,12 +105,12 @@ export function BridgeModal({
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-dark-900/90 backdrop-blur-md"
+        className="absolute inset-0 bg-dark-950/90 backdrop-blur-xl"
         onClick={handleClose}
       />
       
       {/* Modal */}
-      <div className="glass-card relative max-w-md w-full overflow-hidden animate-in border border-white/10 shadow-2xl">
+      <div className="glass-card relative max-w-md w-full overflow-hidden animate-in border border-white/10 shadow-2xl shadow-primary-500/5">
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
           <h2 className="text-lg font-heading font-semibold text-dark-100 flex items-center gap-2">
@@ -150,7 +150,7 @@ export function BridgeModal({
               <p className="text-dark-400 mb-6">
                 {status === 'success' 
                   ? 'Your USDCx has been minted on Stacks.' 
-                  : 'Waiting for Circle and Stacks validators to finalize the transfer (~15 mins).'}
+                  : 'Waiting for validators to finalize the transfer (~15 mins).'}
               </p>
 
               {txHash && (
@@ -189,7 +189,10 @@ export function BridgeModal({
                   </div>
                   {!isEthConnected && (
                     <button 
-                      onClick={() => connect({ connector: connectors[0] })}
+                      onClick={() => {
+                        const connector = connectors[0];
+                        if (connector) connect({ connector });
+                      }}
                       className="px-3 py-1.5 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-lg hover:bg-blue-500/20"
                     >
                       Connect
@@ -272,7 +275,7 @@ export function BridgeModal({
               </button>
               
               <p className="text-xs text-center text-dark-500">
-                Powered by Circle xReserve. Transfers typically take 15-20 minutes.
+                Transfers typically take 15-20 minutes.
               </p>
             </>
           )}

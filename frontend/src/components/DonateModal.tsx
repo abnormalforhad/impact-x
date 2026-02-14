@@ -6,7 +6,8 @@ import { useStacksWallet } from "../hooks/useStacksWallet";
 import { donate } from "../lib/stacks";
 import { BridgeModal } from "./BridgeModal";
 import { GasFeeDisplay } from "./GasFeeDisplay";
-import { GasSpeedSelector, GasSpeed } from "./GasSpeedSelector";
+import type { GasSpeed } from "./GasSpeedSelector";
+import { GasSpeedSelector } from "./GasSpeedSelector";
 
 interface DonateModalProps {
   isOpen: boolean;
@@ -49,7 +50,7 @@ export function DonateModal({
 
   const triggerConfetti = () => {
     const end = Date.now() + 2000;
-    const colors = ["#FF6B1A", "#FF8A4C", "#ffffff"];
+    const colors = ["#06B6D4", "#22D3EE", "#ffffff"];
 
     (function frame() {
       confetti({
@@ -144,10 +145,10 @@ export function DonateModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-dark-900/80 backdrop-blur-md" onClick={handleClose} />
+      <div className="absolute inset-0 bg-dark-950/90 backdrop-blur-xl" onClick={handleClose} />
 
       {/* Modal */}
-      <div className="glass-card relative max-w-md w-full overflow-hidden animate-in">
+      <div className="glass-card relative max-w-md w-full overflow-hidden animate-in shadow-2xl shadow-primary-500/5">
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-white/10">
           <h2 className="text-lg font-heading font-semibold text-dark-100">

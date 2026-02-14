@@ -1,4 +1,5 @@
-import { StatusFilter, getStatusLabel } from "../lib/search";
+import type { StatusFilter } from "../lib/search";
+import { getStatusLabel } from "../lib/search";
 import { Activity, CheckCircle, Clock, Layers } from "lucide-react";
 
 interface StatusFilterTabsProps {

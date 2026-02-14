@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
-import { FullCampaign } from "../lib/campaigns";
-import { SearchFilters, searchAndFilter, SortOption, StatusFilter } from "../lib/search";
-import { CampaignCategory } from "../lib/categories";
+import type { FullCampaign } from "../lib/campaigns";
+import type { SearchFilters, SortOption, StatusFilter } from "../lib/search";
+import { searchAndFilter } from "../lib/search";
+import type { CampaignCategory } from "../lib/categories";
 
 interface UseAdvancedSearchReturn {
   filteredCampaigns: FullCampaign[];

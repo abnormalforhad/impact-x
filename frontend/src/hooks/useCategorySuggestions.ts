@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { CampaignCategory } from "../lib/categories";
-import { FullCampaign } from "../lib/campaigns";
+import type { CampaignCategory } from "../lib/categories";
+import type { FullCampaign } from "../lib/campaigns";
 
 interface SuggestionResult {
   suggestedCampaigns: FullCampaign[];

@@ -110,13 +110,3 @@ export function ShareStats({ campaignId }: ShareStatsProps) {
     </div>
   );
 }
-
-// Helper function to get share history from localStorage
-function getShareHistory(campaignId: number) {
-  try {
-    const history = JSON.parse(localStorage.getItem("shareHistory") || "[]");
-    return history.filter((event: { campaignId: number }) => event.campaignId === campaignId);
-  } catch {
-    return [];
-  }
-}

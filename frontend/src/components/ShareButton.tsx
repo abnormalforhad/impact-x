@@ -10,8 +10,8 @@ import {
   Mail,
 } from "lucide-react";
 import { useState } from "react";
+import type { ShareData } from "../lib/social";
 import {
-  ShareData,
   getTwitterShareUrl,
   getFacebookShareUrl,
   getLinkedInShareUrl,

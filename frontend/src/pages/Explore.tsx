@@ -12,7 +12,7 @@ import { SearchResultsHeader, EmptySearchResults } from "../components/SearchRes
 import { Plus, RefreshCw } from "lucide-react";
 import { useAdvancedSearch } from "../hooks/useAdvancedSearch";
 import { getAllCampaigns, type FullCampaign } from "../lib/campaigns";
-import { StatusFilter } from "../lib/search";
+import type { StatusFilter } from "../lib/search";
 
 export function ExplorePage() {
   const [campaigns, setCampaigns] = useState<FullCampaign[]>([]);

@@ -4,7 +4,6 @@
  */
 
 import { fetchCallReadOnlyFunction } from "@stacks/transactions";
-import { StacksTestnet } from "@stacks/network";
 
 // Stacks fee estimation
 export interface StacksFeeEstimate {

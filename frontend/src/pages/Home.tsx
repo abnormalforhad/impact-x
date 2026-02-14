@@ -30,14 +30,16 @@ export function HomePage() {
   const successfulCampaigns = campaigns.filter(c => c.raised >= c.goal).length;
 
   return (
-    <div className="space-y-20 animate-in">
+    <div className="space-y-20 animate-in" style={{ color: '#f1f5f9' }}>
       {/* Hero Section */}
-      <section className="text-center py-20 px-4 relative overflow-hidden">
+      <section className="text-center py-24 px-4 relative overflow-hidden" style={{ color: '#f1f5f9' }}>
         {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-[120px] -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary-500/15 rounded-full blur-[140px] -z-10 animate-pulse-slow" />
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-primary-400/10 rounded-full blur-[80px] -z-10" />
+        <div className="absolute bottom-20 right-1/4 w-48 h-48 bg-primary-500/10 rounded-full blur-[60px] -z-10" />
         
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-primary-500/20 mb-10 backdrop-blur-sm shadow-[0_0_24px_rgba(6,182,212,0.08)]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-success-500"></span>
@@ -47,13 +49,13 @@ export function HomePage() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-tight">
+          <h1 className="text-5xl md:text-8xl font-heading font-bold mb-8 leading-[1.1] tracking-tight" style={{ color: '#f1f5f9' }}>
             <span className="text-dark-100">Fund the Future of</span>
             <br />
-            <span className="gradient-text">Bitcoin Builders</span>
+            <span className="gradient-text" style={{ color: '#22d3ee' }}>Bitcoin Builders</span>
           </h1>
           
-          <p className="text-xl text-dark-300 max-w-2xl mx-auto mb-10 font-body leading-relaxed">
+          <p className="text-xl md:text-2xl text-dark-300 max-w-2xl mx-auto mb-12 font-body leading-relaxed" style={{ color: '#cbd5e1' }}>
             The first crowdfunding platform powered by <span className="text-primary-400 font-medium">USDCx</span>. 
             Bridge seamlessly from Ethereum, donate with confidence using smart contract escrow.
           </p>
@@ -61,22 +63,22 @@ export function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Link 
               to="/create" 
-              className="btn-primary flex items-center gap-2 text-lg px-8 py-4"
+              className="btn-primary flex items-center gap-2 text-lg px-8 py-4 rounded-2xl"
             >
               <Plus className="w-5 h-5" />
               Start a Campaign
             </Link>
             <Link 
               to="/explore" 
-              className="btn-secondary flex items-center gap-2 text-lg px-8 py-4"
+              className="btn-secondary flex items-center gap-2 text-lg px-8 py-4 rounded-2xl cursor-pointer"
             >
               Explore Projects
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          {/* Trust — your stack */}
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-all duration-500">
             <div className="flex items-center gap-2">
               <img src="https://cryptologos.cc/logos/stacks-stx-logo.svg?v=026" className="w-6 h-6" alt="Stacks" />
               <span className="font-heading font-semibold text-dark-200">Stacks</span>
@@ -86,8 +88,8 @@ export function HomePage() {
               <span className="font-heading font-semibold text-dark-200">USDCx</span>
             </div>
             <div className="flex items-center gap-2">
-              <Shield className="w-6 h-6 text-dark-200" />
-              <span className="font-heading font-semibold text-dark-200">Circle</span>
+              <Shield className="w-6 h-6 text-primary-400" />
+              <span className="font-heading font-semibold text-dark-200">Escrow</span>
             </div>
           </div>
         </div>
@@ -112,7 +114,7 @@ export function HomePage() {
                   <div>
                     <h3 className="text-lg font-semibold text-dark-100 mb-1">Bridge from Ethereum</h3>
                     <p className="text-dark-400 text-sm">
-                      Hold USDC on Ethereum? Use our built-in bridge powered by Circle's xReserve to move funds to Stacks instantly.
+                      Hold USDC on Ethereum? Use our built-in bridge to move funds to Stacks instantly.
                     </p>
                   </div>
                 </div>
@@ -175,8 +177,8 @@ export function HomePage() {
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-sm p-3 rounded-lg bg-white/5">
-                    <span className="text-dark-400">Protocol</span>
-                    <span className="text-dark-200">Circle xReserve</span>
+                    <span className="text-dark-400">Network</span>
+                    <span className="text-dark-200">Stacks</span>
                   </div>
                   <div className="flex items-center justify-between text-sm p-3 rounded-lg bg-white/5">
                     <span className="text-dark-400">Security</span>

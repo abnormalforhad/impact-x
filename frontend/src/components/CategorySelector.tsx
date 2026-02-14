@@ -1,4 +1,5 @@
-import { CampaignCategory, CAMPAIGN_CATEGORIES, CATEGORY_METADATA } from "../lib/categories";
+import type { CampaignCategory } from "../lib/categories";
+import { CAMPAIGN_CATEGORIES, CATEGORY_METADATA } from "../lib/categories";
 import {
   Cpu,
   Palette,

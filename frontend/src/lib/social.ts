@@ -49,6 +49,16 @@ export function getEmailShareUrl(data: ShareData): string {
   return `mailto:?subject=${subject}&body=${body}`;
 }
 
+// Get share history from localStorage (for ShareStats)
+export function getShareHistory(campaignId: number): { campaignId: number; platform: string; timestamp: number }[] {
+  try {
+    const history = JSON.parse(localStorage.getItem("shareHistory") || "[]");
+    return history.filter((event: { campaignId: number }) => event.campaignId === campaignId);
+  } catch {
+    return [];
+  }
+}
+
 // Copy link to clipboard
 export async function copyToClipboard(text: string): Promise<boolean> {
   try {

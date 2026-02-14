@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
+  "name": "impact-x-frontend",
   "private": true,
   "version": "0.0.0",
+  "author": "mdamz",
   "type": "module",
   "scripts": {
     "dev": "vite",

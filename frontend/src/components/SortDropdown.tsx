@@ -1,5 +1,6 @@
 import { ArrowUpDown, Check } from "lucide-react";
-import { SortOption, getSortLabel } from "../lib/search";
+import type { SortOption } from "../lib/search";
+import { getSortLabel } from "../lib/search";
 import { useState } from "react";
 
 interface SortDropdownProps {

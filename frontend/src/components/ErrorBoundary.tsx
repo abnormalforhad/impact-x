@@ -1,84 +1,68 @@
-import React, { Component, type ReactNode } from 'react';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
+import { Component, type ErrorInfo, type ReactNode } from "react";
 
-interface ErrorBoundaryProps {
+interface Props {
   children: ReactNode;
-  fallback?: ReactNode;
 }
 
-interface ErrorBoundaryState {
+interface State {
   hasError: boolean;
   error: Error | null;
 }
 
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
+export class ErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { hasError: false, error: null };
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error("App error:", error, errorInfo);
   }
 
-  handleRetry = () => {
-    this.setState({ hasError: false, error: null });
-    window.location.reload();
-  };
-
   render() {
-    if (this.state.hasError) {
-      if (this.props.fallback) {
-        return this.props.fallback;
-      }
-
+    if (this.state.hasError && this.state.error) {
       return (
-        <div className="min-h-[50vh] flex items-center justify-center p-4">
-          <div className="glass-card max-w-lg w-full p-8 text-center border-red-500/20">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-500/10 flex items-center justify-center">
-              <AlertTriangle className="w-8 h-8 text-red-400" />
-            </div>
-            <h2 className="text-2xl font-heading font-bold text-dark-100 mb-3">
-              Something went wrong
-            </h2>
-            <p className="text-dark-400 mb-6">
-              {this.state.error?.message || 'An unexpected error occurred'}
-            </p>
-            <button
-              onClick={this.handleRetry}
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <RefreshCw className="w-4 h-4" />
-              Reload Page
-            </button>
-          </div>
+        <div
+          style={{
+            minHeight: "100vh",
+            background: "#030712",
+            color: "#f1f5f9",
+            padding: "2rem",
+            fontFamily: "system-ui, sans-serif",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
+            Something went wrong
+          </h1>
+          <p style={{ color: "#94a3b8", marginBottom: "1rem", maxWidth: "400px" }}>
+            {this.state.error.message}
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              padding: "0.5rem 1rem",
+              background: "#06b6d4",
+              color: "#020617",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontWeight: 600,
+            }}
+          >
+            Reload page
+          </button>
         </div>
       );
     }
-
     return this.props.children;
   }
-}
-
-/**
- * Hook to use error boundary with async operations
- */
-export function useErrorHandler() {
-  const [error, setError] = React.useState<Error | null>(null);
-
-  const handleError = React.useCallback((err: unknown) => {
-    const error = err instanceof Error ? err : new Error(String(err));
-    setError(error);
-    console.error('Error handled:', error);
-  }, []);
-
-  const clearError = React.useCallback(() => {
-    setError(null);
-  }, []);
-
-  return { error, handleError, clearError };
 }

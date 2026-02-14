@@ -1,5 +1,7 @@
 # Impact-X: Cross-Chain Crowdfunding for Bitcoin Builders
 
+**By [@mdamz](https://github.com/mdamz)**
+
 > Unlock Ethereum liquidity to fund the next generation of Bitcoin & Stacks builders.
 
 Impact-X is a decentralized crowdfunding platform that bridges the gap between Ethereum capital and Stacks innovation. Creators launch campaigns on Stacks and accept USDC donations from Ethereum wallets via Circle's xReserve protocol.
@@ -224,7 +226,7 @@ Output will be in `frontend/dist/`.
 
 ## License
 
-MIT
+MIT © [mdamz](https://github.com/mdamz)
 
 ## Links
 

@@ -18,7 +18,8 @@ import { createCampaign } from "../lib/stacks";
 import { RichTextEditor } from "../components/RichTextEditor";
 import { CategorySelector } from "../components/CategorySelector";
 import { GasFeeDisplay } from "../components/GasFeeDisplay";
-import { CampaignCategory, isValidCategory } from "../lib/categories";
+import type { CampaignCategory } from "../lib/categories";
+import { CAMPAIGN_CATEGORIES, isValidCategory } from "../lib/categories";
 
 type FormStep = "details" | "story" | "review";
 
@@ -54,6 +55,7 @@ export function CreatePage() {
   const [duration, setDuration] = useState("30");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [categoryError, setCategoryError] = useState<string | null>(null);
 
   const handleGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -104,19 +106,6 @@ export function CreatePage() {
       setCategoryError('');
       if (!goal || parseFloat(goal) < 100) {
         const msg = 'Goal must be at least $100';
-        setError(msg);
-        toast.error(msg);
-        return false;
-      }
-    }
-      if (!description.trim()) {
-        const msg = "Please enter a description";
-        setError(msg);
-        toast.error(msg);
-        return false;
-      }
-      if (!goal || parseFloat(goal) < 100) {
-        const msg = "Goal must be at least $100";
         setError(msg);
         toast.error(msg);
         return false;

@@ -1,5 +1,6 @@
-import { CampaignCategory, CAMPAIGN_CATEGORIES, CATEGORY_METADATA } from "../lib/categories";
-import { FullCampaign } from "../lib/campaigns";
+import type { CampaignCategory } from "../lib/categories";
+import { CAMPAIGN_CATEGORIES, CATEGORY_METADATA } from "../lib/categories";
+import type { FullCampaign } from "../lib/campaigns";
 import { useMemo } from "react";
 import { TrendingUp, DollarSign, Users, Target } from "lucide-react";
 

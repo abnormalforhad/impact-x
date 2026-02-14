@@ -13,7 +13,8 @@ import {
   Trophy,
   Circle,
 } from "lucide-react";
-import { CampaignCategory, CATEGORY_METADATA, getCategoryColor } from "../lib/categories";
+import type { CampaignCategory } from "../lib/categories";
+import { CATEGORY_METADATA, getCategoryColor } from "../lib/categories";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cpu,

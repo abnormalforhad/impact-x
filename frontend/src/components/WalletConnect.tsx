@@ -1,6 +1,24 @@
+import { Component, type ReactNode } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useStacksWallet } from '../hooks/useStacksWallet';
 import { Wallet, LogOut } from 'lucide-react';
+
+class RainbowKitBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <span style={{ color: '#94a3b8', fontSize: 14 }} title="Connect Ethereum wallet">
+          Connect ETH
+        </span>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 export function WalletConnect() {
   const { connected, stxAddress, connect, disconnect, loading } = useStacksWallet();
@@ -38,16 +56,18 @@ export function WalletConnect() {
       )}
 
       {/* Ethereum Wallet via RainbowKit */}
-      <div className="[&_button]:!rounded-xl [&_button]:!font-heading [&_button]:!text-sm">
-        <ConnectButton 
-          chainStatus="icon"
-          showBalance={false}
-          accountStatus={{
-            smallScreen: 'avatar',
-            largeScreen: 'address',
-          }}
-        />
-      </div>
+      <RainbowKitBoundary>
+        <div className="[&_button]:!rounded-xl [&_button]:!font-heading [&_button]:!text-sm">
+          <ConnectButton
+            chainStatus="icon"
+            showBalance={false}
+            accountStatus={{
+              smallScreen: 'avatar',
+              largeScreen: 'address',
+            }}
+          />
+        </div>
+      </RainbowKitBoundary>
     </div>
   );
 }

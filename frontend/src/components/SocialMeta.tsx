@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ShareData } from "../lib/social";
+import type { ShareData } from "../lib/social";
 
 interface SocialMetaProps {
   data: ShareData;

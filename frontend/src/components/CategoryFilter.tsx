@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { CampaignCategory, CAMPAIGN_CATEGORIES } from "../lib/categories";
+import type { CampaignCategory } from "../lib/categories";
+import { CAMPAIGN_CATEGORIES } from "../lib/categories";
 import { CategoryBadge } from "./CategoryBadge";
 import { ChevronDown, X } from "lucide-react";
 

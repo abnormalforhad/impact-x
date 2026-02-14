@@ -3,8 +3,8 @@
  * Provides comprehensive search, filter, and sorting for campaigns
  */
 
-import { FullCampaign } from "./campaigns";
-import { CampaignCategory } from "./categories";
+import type { FullCampaign } from "./campaigns";
+import type { CampaignCategory } from "./categories";
 
 export type SortOption =
   | "newest"

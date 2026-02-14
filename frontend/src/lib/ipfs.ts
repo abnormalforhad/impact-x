@@ -42,7 +42,9 @@ const IPFS_GATEWAYS = [
   'https://w3s.link/ipfs/',
   'https://ipfs.io/ipfs/',
   'https://cloudflare-ipfs.com/ipfs/',
-];
+] as const;
+
+const DEFAULT_IPFS_GATEWAY = IPFS_GATEWAYS[0];
 
 /**
  * Upload campaign metadata to IPFS via Pinata
@@ -152,14 +154,14 @@ export async function uploadImageToIPFS(file: File): Promise<string> {
   console.log('Uploaded image to IPFS:', result.IpfsHash);
   
   // Return gateway URL
-  return `${IPFS_GATEWAYS[0]}${result.IpfsHash}`;
+  return `${DEFAULT_IPFS_GATEWAY}${result.IpfsHash}`;
 }
 
 /**
  * Create a valid IPFS URL from a CID
  */
 export function getIPFSUrl(cid: string): string {
-  return `${IPFS_GATEWAYS[0]}${cid}`;
+  return `${DEFAULT_IPFS_GATEWAY}${cid}`;
 }
 
 /**
