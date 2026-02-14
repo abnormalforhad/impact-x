@@ -114,14 +114,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 Crowdfunding for builders.
               </span>
             </div>
-            <a
-              href="https://github.com/abnormalforhad"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-dark-400 hover:text-primary-400 font-body transition-colors cursor-pointer"
-            >
-              GitHub
-            </a>
           </div>
         </div>
       </footer>
