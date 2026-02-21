@@ -10,7 +10,7 @@ plan:
       transactions:
         - contract-publish:
             contract-name: staking-pool-v1
-            expected-sender: ST2QV4E68NQ4SSVNWQ1GS6A3WH9S6VFCRP2TK9BT8
+            expected-sender: STJ5NBT1BF4BQQXRP6F6QVVP88S4Z231MWDRFJ6F
             cost: 2903898
             path: staking-pool-v1.clar
             anchor-block-only: true
