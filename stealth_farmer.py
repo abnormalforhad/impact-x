@@ -4,7 +4,7 @@ import subprocess
 import time
 
 # --- CONFIGURATION ---
-TOTAL_COMMITS = 150       # How many green squares for today?
+TOTAL_COMMITS = 157       # How many green squares for today?
 FILENAME = "farming_activity.txt" # Changed to .txt to avoid gitignore errors
 # ---------------------
 
@@ -23,9 +23,11 @@ def main():
     # 2. Loop through the commits
     for i in range(TOTAL_COMMITS):
         try:
-            # A. Make a tiny change
+            # A. Make a MASSIVE change
             with open(FILENAME, "a") as f:
-                f.write(f"Commit {i+1} - {random.randint(1000, 9999)}\n")
+                # Writes 500 lines of fake Python functions per commit
+                for _ in range(500):
+                    f.write(f"def dummy_function_{random.randint(10000, 99999)}():\n    return 'wip'\n\n")
             
             # B. FORCE ADD the file (Fixes your error!)
             run_git(f"git add -f {FILENAME}")
